@@ -2,7 +2,10 @@
 
 package main
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 func main() {
 
@@ -14,9 +17,10 @@ type Question struct {
 }
 
 func NewQuestionFromRecord(record [2]string) Question {
-	conv, err := strconv.Atoi(record[1])
+	trimmed := strings.TrimSpace(record[1])
+	converted, err := strconv.Atoi(trimmed)
 	if err != nil {
 		panic(err)
 	}
-	return Question{record[0], conv}
+	return Question{record[0], converted}
 }

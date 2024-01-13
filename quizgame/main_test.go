@@ -27,6 +27,7 @@ func TestNewQuestionFromRecord(t *testing.T) {
 		want Question
 	}{
 		{"1", [2]string{"5+5", "10"}, Question{"5+5", 10}},
+		{"1", [2]string{"What is 24-6?", "  18  "}, Question{"What is 24-6?", 18}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
